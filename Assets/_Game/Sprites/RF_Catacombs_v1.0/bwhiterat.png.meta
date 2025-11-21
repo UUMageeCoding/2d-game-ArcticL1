@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bwhiterat_0: 6053786680029693315
+      bwhiterat_1: 5380905304097697632
+      bwhiterat_2: 8250371226252333370
+      bwhiterat_3: 8040133781783248930
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

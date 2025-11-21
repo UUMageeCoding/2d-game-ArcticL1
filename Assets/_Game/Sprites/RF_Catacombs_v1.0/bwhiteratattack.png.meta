@@ -309,7 +309,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bwhiteratattack_0: 8994193656949761380
+      bwhiteratattack_1: -5508661451849111141
+      bwhiteratattack_2: -6490318040163847924
+      bwhiteratattack_3: 8293370713792764337
+      bwhiteratattack_4: 2536915564129118716
+      bwhiteratattack_5: -677680344527057877
+      bwhiteratattack_6: 2141965431624529422
+      bwhiteratattack_7: -3200264953297400343
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
