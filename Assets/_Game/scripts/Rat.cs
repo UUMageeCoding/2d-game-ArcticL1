@@ -1,88 +1,94 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Rendering;
+
 public class Rat : MonoBehaviour
 {
-    public Animator Anim;
-    [SerializeField] private Transform target;
-    [SerializeField] [Range(0.5f, 2.5f)] private float attackDistance;
+    public Animator Animation;
 
-    private NavMeshAgent navMeshAgent;
+    [SerializeField] private Transform _target;
+    [SerializeField][Range(0.5f, 7.5f)] private float _attackDistance;
+    private NavMeshAgent _navMeshAgent;
+    private AI_Rat_Machine _stateMachine;
+    private float _previousXpos;
 
-    private AI_Rat_Machine statemachine;
-
-    private float previousXpos;
-
-    private const string isWalking = "iswalking";
-    private const string isAttacking = "isAttacking";
-
+    private const string _iswalking = "isWalking";
+    private const string _isAttacking = "isAttacking";
+    float health, maxhealth = 3f;
     private void Awake()
     {
-        statemachine = GetComponentInChildren<AI_Rat_Machine>();
-        Anim = GetComponent<Animator>();
+        _stateMachine = GetComponentInChildren<AI_Rat_Machine>();
+        Animation = GetComponent<Animator>();
     }
+
 
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        navMeshAgent.updateRotation = false;
-        navMeshAgent.updateUpAxis = false;
-        navMeshAgent.transform.position = transform.position;
+        health = maxhealth;
+        _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.updateRotation = false;
+        _navMeshAgent.updateUpAxis = false;
+        _previousXpos = transform.position.x;
     }
 
+   
     void Update()
     {
         if (IsMovingRight()) GetComponent<SpriteRenderer>().flipX = false;
         else GetComponent<SpriteRenderer>().flipX = true;
 
+       
+        AnimatorStateInfo stateInfo = _stateMachine.anim.GetCurrentAnimatorStateInfo(0);
 
-        AnimatorStateInfo stateInfo = statemachine.Anim.GetNextAnimatorStateInfo(0);
-
-        Debug.Log("i can see player : " + statemachine.annoyed());
-        if (statemachine.annoyed())
-
+        Debug.Log("Can see player: " + _stateMachine.CanSeePlayer());
+        if (_stateMachine.CanSeePlayer())
         {
-            bool isannoyed = stateInfo.IsName("annoyed");
-            if (AttackDistancecheck() && isannoyed)
+            bool isAngry = stateInfo.IsName("Angry");
+            if (AttackDistCheck() && isAngry)
             {
-                Anim.SetBool(isAttacking, true);
-                navMeshAgent.isStopped = true;
-                Anim.SetBool(isWalking, false);
+                Animation.SetBool(_isAttacking, true);
+                _navMeshAgent.isStopped = true;
+                Animation.SetBool(_iswalking, false);
             }
-
             else
-
             {
-                Anim.SetBool(isAttacking, false);
-                navMeshAgent.isStopped = false;
-                Anim.SetBool(isWalking, true);
-                navMeshAgent.SetDestination(target.position);
+                Animation.SetBool(_isAttacking, false);
+                _navMeshAgent.isStopped = false;
+                Animation.SetBool(_iswalking, true);
+                _navMeshAgent.SetDestination(_target.position);
             }
-        }
 
+        }
         else
         {
-            navMeshAgent.isStopped = true;
-            Anim.SetBool(isWalking, false);
-
+            _navMeshAgent.isStopped = true;
+            Animation.SetBool(_iswalking, false);
         }
-        previousXpos = transform.position.x;
+        _previousXpos = transform.position.x;
     }
 
+   
     public bool IsMovingRight()
     {
-        return transform.position.x >= previousXpos;
+        return transform.position.x >= _previousXpos;
     }
 
-    
-    public bool AttackDistancecheck()
+    public bool AttackDistCheck()
     {
-        return ((target.position - transform.position).magnitude < attackDistance);
+        return ((_target.position - transform.position).magnitude < _attackDistance);
+    }
 
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
+

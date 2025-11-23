@@ -1,0 +1,45 @@
+using UnityEngine;
+
+public class attack : MonoBehaviour
+{
+  public GameObject Melee;
+    bool isAttacking = false;
+    float timeToAttack = 0.3f;
+    float atkDuration = 0.3f;
+    float atkTimer = 0f;
+
+    // Update is called once per frame
+    void Update()
+    {
+        CheckMeleeTimer();
+
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0))
+        {
+            Onattack();
+        }
+    }
+
+    void Onattack()
+    {
+        if (!isAttacking)
+        {
+            Melee.SetActive(true);
+            isAttacking = true;
+            //call the animator for the playing of attack animation
+        }
+    }
+
+    void CheckMeleeTimer()
+    {
+        if(isAttacking)
+        {
+            atkTimer += Time.deltaTime;
+            if (atkTimer >= atkDuration)
+            {
+                atkTimer = 0f;
+                isAttacking= false;
+                Melee.SetActive(false);
+            }
+        }
+    }
+}

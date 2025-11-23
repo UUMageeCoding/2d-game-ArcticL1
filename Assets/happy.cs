@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class happy : StateMachineBehaviour
+
 {
+    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Iam happy!");
+        Debug.Log("I am so happy!");
     }
+
+    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("Bouncing cause iam happy!");
+        Debug.Log("I am singing, cos I am happy.");
     }
+
+    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("No more happy!");
+        Debug.Log("I'm not singing anymore.");
     }
+
 }
+

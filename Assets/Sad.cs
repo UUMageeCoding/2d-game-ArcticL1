@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class sad : StateMachineBehaviour
 {
+   
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("no more happy, sad time :( !");
+        Debug.Log("I feel sad!");
     }
+
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("iam cry ;( cause iam sad!");
+        Debug.Log("I am crying, boo hoo!");
     }
+
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("not crying anymore yay!");
+        Debug.Log("My tears have dried up!");
     }
 }
-

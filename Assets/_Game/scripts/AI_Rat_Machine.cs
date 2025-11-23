@@ -2,42 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI_Rat_Machine: MonoBehaviour
+public class AI_Rat_Machine : MonoBehaviour
 {
     [SerializeField] private Transform _player;
     [SerializeField] private float _playerDistance = Mathf.Infinity;
     [SerializeField] private float _distanceToPlayerThreshold = 5f;
-    public Animator Anim;
+    public Animator anim;
     [SerializeField] private float _turnSadChance = 0.001f;
-    private const string isupset = "Upset";
-    private const string isannoyed = "annoyed";
+    private const string _isupset = "isUpset";
+    private const string _seePlayer = "PlayerVisible";
 
     private void Awake()
     {
-        
+
     }
 
-        private void Update()
+  
+    private void Update()
     {
         float invertHappiness = Random.Range(0f, 1f);
         if (invertHappiness > 1 - _turnSadChance)
         {
-            Anim.SetBool(isupset, !Anim.GetBool(isupset));
+            anim.SetBool(_isupset, !anim.GetBool(_isupset));
         }
         _playerDistance = (_player.position - transform.position).magnitude;
-      
+       
         if (_playerDistance < _distanceToPlayerThreshold)
         {
-            Anim.SetBool(isannoyed, true);
+            anim.SetBool(_seePlayer, true);
         }
         else
         {
-            Anim.SetBool(isannoyed, false);
+            anim.SetBool(_seePlayer, false);
         }
     }
 
-    public bool annoyed()
+    public bool CanSeePlayer()
     {
-        return Anim.GetBool(isannoyed);
+        return anim.GetBool(_seePlayer);
     }
 }
