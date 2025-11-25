@@ -46,8 +46,8 @@ public class movement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-
-        if((moveX == 0 && moveY == 0) && (input.x !=0 || input.y !=0))
+        
+        if(input.x !=0 || input.y !=0)
         {
             iswalking = false;
             lastMoveDirection = input;

@@ -11,7 +11,7 @@ public class Rat : MonoBehaviour
     public Animator Animation;
 
     [SerializeField] private Transform _target;
-    [SerializeField][Range(0.5f, 7.5f)] private float _attackDistance;
+    [SerializeField][Range(0.5f, 20.0f)] private float _attackDistance;
     private NavMeshAgent _navMeshAgent;
     private AI_Rat_Machine _stateMachine;
     private float _previousXpos;
@@ -87,6 +87,7 @@ public class Rat : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            Debug.Log("SQUEAK");
             Destroy(gameObject);
         }
     }

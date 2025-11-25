@@ -2,16 +2,20 @@ using UnityEngine;
 
 public class attack : MonoBehaviour
 {
+  private Animator anim;
   public GameObject Melee;
     bool isAttacking = false;
-    float timeToAttack = 0.3f;
-    float atkDuration = 0.3f;
+    float atkDuration = 0.5f;
     float atkTimer = 0f;
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
-    // Update is called once per frame
     void Update()
     {
         CheckMeleeTimer();
+       
 
         if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButton(0))
         {
@@ -25,7 +29,7 @@ public class attack : MonoBehaviour
         {
             Melee.SetActive(true);
             isAttacking = true;
-            //call the animator for the playing of attack animation
+            anim.Play("Attack");
         }
     }
 

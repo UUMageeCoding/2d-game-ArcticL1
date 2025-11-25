@@ -8,17 +8,17 @@ public class annoyed : StateMachineBehaviour
  
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("I feel sad!");
+        Debug.Log("I angry cause no cheese!");
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("I am crying, boo hoo!");
+        Debug.Log("I am angry, player has cheese!");
     }
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Debug.Log("My tears have dried up!");
+        Debug.Log("Got my cheese no more angry!");
     }
 }
     
