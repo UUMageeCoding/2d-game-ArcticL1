@@ -5,7 +5,7 @@ public class attack : MonoBehaviour
   private Animator anim;
   public GameObject Melee;
     bool isAttacking = false;
-    float atkDuration = 0.5f;
+    float atkDuration = 0.3f;
     float atkTimer = 0f;
     void Start()
     {

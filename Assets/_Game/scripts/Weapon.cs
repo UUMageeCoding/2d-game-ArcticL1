@@ -6,10 +6,18 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       Rat rat = collision.GetComponent<Rat>();
+        Rat rat = collision.GetComponent<Rat>();
         if (rat != null)
         {
             rat.TakeDamage(damage);
         }
+
+        PotBreak  smash = collision.GetComponent<PotBreak>();
+        if (smash != null)
+        {
+            smash.TakeDamage(damage);
+        }
     }
+    
+
 }

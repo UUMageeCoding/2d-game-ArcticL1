@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapTrigger : MonoBehaviour
 {
-
+    float cathealth, maxhealth = 5f;
     Vector2 checkpointPos;
     Rigidbody2D PlayerRb;
     private void Awake()
@@ -13,6 +13,7 @@ public class TrapTrigger : MonoBehaviour
     }
     private void Start()
     {
+        cathealth = maxhealth;
         checkpointPos = transform.position;
     }
 
@@ -20,6 +21,15 @@ public class TrapTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Dtrap"))
         {
+            Die();
+        }
+    }
+    public void TakeDamage(float damage)
+    {
+        cathealth -= damage;
+        if (cathealth <= 0)
+        {
+            Debug.Log("meow");
             Die();
         }
     }
@@ -46,7 +56,4 @@ public class TrapTrigger : MonoBehaviour
          PlayerRb.simulated = true;
     }
      
-
-    
-
 }

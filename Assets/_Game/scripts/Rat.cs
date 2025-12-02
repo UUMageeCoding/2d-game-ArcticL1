@@ -19,6 +19,7 @@ public class Rat : MonoBehaviour
     private const string _iswalking = "isWalking";
     private const string _isAttacking = "isAttacking";
     float health, maxhealth = 3f;
+    [SerializeField] private ParticleSystem Damageparticles; 
     private void Awake()
     {
         _stateMachine = GetComponentInChildren<AI_Rat_Machine>();
@@ -44,7 +45,7 @@ public class Rat : MonoBehaviour
        
         AnimatorStateInfo stateInfo = _stateMachine.anim.GetCurrentAnimatorStateInfo(0);
 
-        Debug.Log("Can see player: " + _stateMachine.CanSeePlayer());
+        Debug.Log("Can Attack player: " + _stateMachine.CanSeePlayer());
         if (_stateMachine.CanSeePlayer())
         {
             bool isAngry = stateInfo.IsName("Angry");
