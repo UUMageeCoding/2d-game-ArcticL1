@@ -16,6 +16,8 @@ public class Rat : MonoBehaviour
     private AI_Rat_Machine _stateMachine;
     private float _previousXpos;
 
+    GameObject player;
+
     private const string _iswalking = "isWalking";
     private const string _isAttacking = "isAttacking";
     float health, maxhealth = 3f;
@@ -34,6 +36,7 @@ public class Rat : MonoBehaviour
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
         _previousXpos = transform.position.x;
+        player = GameObject.FindWithTag("Player");
     }
 
    
@@ -68,6 +71,7 @@ public class Rat : MonoBehaviour
         {
             _navMeshAgent.isStopped = true;
             Animation.SetBool(_iswalking, false);
+            _target = player.transform;
         }
         _previousXpos = transform.position.x;
     }

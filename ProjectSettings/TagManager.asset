@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dtrap
   - PatrolSpots
+  - BossTrigger
   layers:
   - Default
   - TransparentFX
