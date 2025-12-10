@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: fe4e9bdd976446241ac5c58f58765797
+guid: d1760c23dd9a75542bfdc01bb3c490b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6674906382992528752
-    second: blackwalk_0
+      213: 3097830190509863850
+    second: whitewalk_0
   - first:
-      213: -1182795884695788919
-    second: blackwalk_1
+      213: -7357555207302522101
+    second: whitewalk_1
   - first:
-      213: 5857106653391280078
-    second: blackwalk_2
+      213: -1845349246563493120
+    second: whitewalk_2
   - first:
-      213: 1214089180215608138
-    second: blackwalk_3
+      213: 1572447508230399394
+    second: whitewalk_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blackwalk_0
+      name: whitewalk_0
       rect:
         serializedVersion: 2
         x: 12
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 075d14b7df702ac50800000000000000
-      internalID: 6674906382992528752
+      spriteID: aa332df2524bdfa20800000000000000
+      internalID: 3097830190509863850
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blackwalk_1
+      name: whitewalk_1
       rect:
         serializedVersion: 2
         x: 77
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 982e9ead86dd59fe0800000000000000
-      internalID: -1182795884695788919
+      spriteID: b0b586d5586b4e990800000000000000
+      internalID: -7357555207302522101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blackwalk_2
+      name: whitewalk_2
       rect:
         serializedVersion: 2
         x: 144
@@ -168,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec7d6fe087f984150800000000000000
-      internalID: 5857106653391280078
+      spriteID: 00b5c0823a00466e0800000000000000
+      internalID: -1845349246563493120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blackwalk_3
+      name: whitewalk_3
       rect:
         serializedVersion: 2
         x: 210
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4385684daf49d010800000000000000
-      internalID: 1214089180215608138
+      spriteID: 2a565047da472d510800000000000000
+      internalID: 1572447508230399394
       vertices: []
       indices: 
       edges: []
@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      whitewalk_0: 3097830190509863850
+      whitewalk_1: -7357555207302522101
+      whitewalk_2: -1845349246563493120
+      whitewalk_3: 1572447508230399394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

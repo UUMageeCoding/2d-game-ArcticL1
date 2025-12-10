@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 73f9429357bd5564691054167593f9bb
+guid: cad0186afd4c8964fa6f51ec1f14a1f9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7513824247066469419
-    second: bwhiteraidlet_0
+      213: 6053786680029693315
+    second: bwhiterat_0
   - first:
-      213: 6839032509918177689
-    second: bwhiteraidlet_1
+      213: 5380905304097697632
+    second: bwhiterat_1
+  - first:
+      213: 8250371226252333370
+    second: bwhiterat_2
+  - first:
+      213: 8040133781783248930
+    second: bwhiterat_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 36
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bwhiteraidlet_0
+      name: bwhiterat_0
       rect:
         serializedVersion: 2
         x: 3
@@ -118,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5dbd2e048a889b790800000000000000
-      internalID: -7513824247066469419
+      spriteID: 385492149ee530450800000000000000
+      internalID: 6053786680029693315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bwhiteraidlet_1
+      name: bwhiterat_1
       rect:
         serializedVersion: 2
-        x: 69
+        x: 68
         y: 33
-        width: 38
-        height: 13
+        width: 39
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +146,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 999650145df19ee50800000000000000
-      internalID: 6839032509918177689
+      spriteID: 06f22c46dd0dcaa40800000000000000
+      internalID: 5380905304097697632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bwhiterat_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 33
+        width: 38
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31dfddfae43f7270800000000000000
+      internalID: 8250371226252333370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bwhiterat_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 33
+        width: 38
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2200fc9731b449f60800000000000000
+      internalID: 8040133781783248930
       vertices: []
       indices: 
       edges: []
@@ -160,8 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bwhiteraidlet_0: -7513824247066469419
-      bwhiteraidlet_1: 6839032509918177689
+      bwhiterat_0: 6053786680029693315
+      bwhiterat_1: 5380905304097697632
+      bwhiterat_2: 8250371226252333370
+      bwhiterat_3: 8040133781783248930
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
