@@ -434,7 +434,20 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      demonbayblade_0: -5114897997135352233
+      demonbayblade_1: 7257436240861148108
+      demonbayblade_10: 2061305464916856605
+      demonbayblade_11: 9141606995710064543
+      demonbayblade_12: 3253111193534966508
+      demonbayblade_2: 4212475213145954627
+      demonbayblade_3: 677430829195806305
+      demonbayblade_4: -1512819533807328245
+      demonbayblade_5: -3191502880614335352
+      demonbayblade_6: -6683598230196161380
+      demonbayblade_7: 863203901713574085
+      demonbayblade_8: -5676819923290094707
+      demonbayblade_9: -8110896533232356159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
