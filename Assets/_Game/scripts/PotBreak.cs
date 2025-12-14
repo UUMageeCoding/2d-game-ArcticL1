@@ -8,8 +8,12 @@ public class PotBreak : MonoBehaviour
     float health, maxhealth = 3f;
     public Sprite Broken;
     [SerializeField] private ParticleSystem SmashParticles;
+    audiomanager audiomanager;
 
-
+    private void Awake()
+    {
+        audiomanager = GameObject.FindGameObjectWithTag("audio").GetComponent<audiomanager>();
+    }
     private ParticleSystem SmashParticlesInstance;
     void Start()
     {
@@ -19,19 +23,17 @@ public class PotBreak : MonoBehaviour
     public void TakeDamage(float damage)
     {
         potshards();
+        audiomanager.PlaySFX(audiomanager.smash);
         health -= damage;
         if (health <= 2)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = Broken;
-            Debug.Log("iam hurt");
-            potshards();
-
+            Debug.Log("iam hurt"); 
         }
 
         if (health <= 0)
         {
             Debug.Log("smash"); 
-            potshards();
             Destroy(gameObject);
         }
 

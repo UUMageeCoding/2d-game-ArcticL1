@@ -5,13 +5,18 @@ public class attack : MonoBehaviour
   private Animator anim;
   public GameObject Melee;
     bool isAttacking = false;
-    float atkDuration = 0.3f;
+    float atkDuration = 0.25f;
     float atkTimer = 0f;
+    audiomanager audiomanager;
     void Start()
     {
         anim = GetComponent<Animator>();
     }
 
+    private void Awake()
+    {
+        audiomanager = GameObject.FindGameObjectWithTag("audio").GetComponent<audiomanager>();
+    }
     void Update()
     {
         CheckMeleeTimer();
@@ -30,6 +35,7 @@ public class attack : MonoBehaviour
             Melee.SetActive(true);
             isAttacking = true;
             anim.Play("Attack");
+            audiomanager.PlaySFX(audiomanager.slash);
         }
     }
 

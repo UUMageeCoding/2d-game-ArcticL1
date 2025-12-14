@@ -8,6 +8,11 @@ TagManager:
   - PatrolSpots
   - BossTrigger
   - BaraTrigger
+  - keyspawner
+  - '=]'
+  - Door
+  - healthpot
+  - audio
   layers:
   - Default
   - TransparentFX

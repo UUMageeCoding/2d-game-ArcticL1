@@ -9,29 +9,39 @@ using UnityEngine.Rendering;
 public class Rat : MonoBehaviour
 {
     public Animator Animation;
+    public int damage = 1;
+    float health, maxhealth = 5f;
+    [SerializeField] healthbar healthbar;
 
     [SerializeField] private Transform _target;
     [SerializeField][Range(0.5f, 20.0f)] private float _attackDistance;
     private NavMeshAgent _navMeshAgent;
     private AI_Rat_Machine _stateMachine;
     private float _previousXpos;
-
     GameObject player;
-
+   
     private const string _iswalking = "isWalking";
     private const string _isAttacking = "isAttacking";
-    float health, maxhealth = 3f;
-    [SerializeField] private ParticleSystem Damageparticles; 
+   
+    [SerializeField] private ParticleSystem Damageparticles;
+    [SerializeField] private ParticleSystem Deathparticles;
+    private ParticleSystem DamageParticlesInstance;
+    private ParticleSystem DeathParticlesInstance;
+
+    audiomanager audiomanager;
     private void Awake()
     {
         _stateMachine = GetComponentInChildren<AI_Rat_Machine>();
         Animation = GetComponent<Animator>();
+        healthbar = GetComponentInChildren<healthbar>();
+        audiomanager = GameObject.FindGameObjectWithTag("audio").GetComponent<audiomanager>();
     }
 
 
     void Start()
     {
         health = maxhealth;
+        healthbar.updatehealthbar(health, maxhealth);
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.updateRotation = false;
         _navMeshAgent.updateUpAxis = false;
@@ -64,6 +74,7 @@ public class Rat : MonoBehaviour
                 _navMeshAgent.isStopped = false;
                 Animation.SetBool(_iswalking, true);
                 _navMeshAgent.SetDestination(_target.position);
+                _target = player.transform;
             }
 
         }
@@ -71,7 +82,7 @@ public class Rat : MonoBehaviour
         {
             _navMeshAgent.isStopped = true;
             Animation.SetBool(_iswalking, false);
-            _target = player.transform;
+           
         }
         _previousXpos = transform.position.x;
     }
@@ -89,11 +100,38 @@ public class Rat : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        ratblood();
+        audiomanager.PlaySFX(audiomanager.hit);
         health -= damage;
+        healthbar.updatehealthbar(health, maxhealth);
         if (health <= 0)
         {
             Debug.Log("SQUEAK");
+            audiomanager.PlaySFX(audiomanager.ratdeath);
+            deathsmoke();
             Destroy(gameObject);
+        }
+    }
+
+    private void ratblood()
+    {
+        DamageParticlesInstance = Instantiate(Damageparticles, transform.position, Quaternion.identity);
+    }
+
+    private void deathsmoke()
+    {
+        DeathParticlesInstance = Instantiate(Deathparticles, transform.position, Quaternion.identity);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+      if (collision.gameObject.tag == "Player")
+        {
+            TrapTrigger Cat = collision.GetComponent<TrapTrigger>();
+            if (Cat != null)
+            {
+                Cat.TakeDamage(damage);
+            }
         }
     }
 }
